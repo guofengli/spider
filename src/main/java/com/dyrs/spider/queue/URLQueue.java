@@ -1,12 +1,10 @@
 package com.dyrs.spider.queue;
 
-import java.util.HashMap;
+import java.util.Vector;
+
 
 public class URLQueue {
-	public static HashMap<String, String> list = new HashMap<String, String>();
-	public String urlQueue(){
-		
-		
-		return null;
-	}
+	public static Vector<String> list = new Vector<String>();
+	public static int start = 0;
+	public static int num = 10;
 }

@@ -62,7 +62,7 @@
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
 						<manifest>
-							<mainClass>com.crawler.qijiawang.search.MySpider</mainClass>
+							<mainClass>com.dyrs.spider.main.TestScheduledThreadPoolExecutor</mainClass>
 						</manifest>
 					</archive>
 
