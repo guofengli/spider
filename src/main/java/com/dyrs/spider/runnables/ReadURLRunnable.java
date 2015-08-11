@@ -20,7 +20,13 @@ public class ReadURLRunnable implements Runnable{
 		if(quequeLen < 100){
 			logger.info("开始从数据库中读取URL");
 			SpiderURLDB spiderURLDB = new MyPipeline();
-			List<SpiderURLUser> urlList = spiderURLDB.selectSpiderURLs(URLQueue.start, URLQueue.num);
+			/*
+			 * @author:guofeng
+			 * @date:2015-08-11
+			 * 这里因为添加了 where mark= 0  所有应该是从0开始连续num条记录
+			 * */
+//			List<SpiderURLUser> urlList = spiderURLDB.selectSpiderURLs(URLQueue.start, URLQueue.num);
+			List<SpiderURLUser> urlList = spiderURLDB.selectSpiderURLs(0, URLQueue.num);
 	        int len = urlList.size();
 	        for(int index = 0; index < len; index++){
 	        	String url = urlList.get(index).getStr("url");
@@ -30,7 +36,7 @@ public class ReadURLRunnable implements Runnable{
 	        		URLQueue.list.add(url);
 	        	}
 	        }
-	        URLQueue.start += len < URLQueue.num ? len : URLQueue.num;
+//	        URLQueue.start += len < URLQueue.num ? len : URLQueue.num;
 	        this.logger.info("读取URL完毕!");
 		}
 	}

@@ -24,7 +24,7 @@ public class MyPipeline implements SpiderURLDB, SpiderPageDB, SpiderDefeatURLDB 
 
 	public List<SpiderURLUser> selectSpiderURLs(int start, int num) {
 		List<SpiderURLUser> urlList = SpiderURLUser.me
-				.find("select * from spider_url LIMIT " + start + ", " + num);
+				.find("select * from spider_url  where mark = 0 LIMIT " + start + ", " + num);
 		return urlList;
 	}
 
@@ -71,7 +71,7 @@ public class MyPipeline implements SpiderURLDB, SpiderPageDB, SpiderDefeatURLDB 
 				SpiderURLUser user = SpiderURLUser.me.findById(url);
 				if (user != null) {
 //					new SpiderURLUser().setAttrs(map).update();
-					logger.info(url + "----------->update success");
+//					logger.info(url + "----------->update success");
 				} else {
 					new SpiderURLUser().setAttrs(map).save();
 					logger.info(url + "----------->save success");
