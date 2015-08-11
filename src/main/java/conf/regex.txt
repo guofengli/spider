@@ -1,0 +1,5 @@
+http://bbs.wacai.com/thread-[0-9]{1,}-[0-9]{1,}-1.html
+http://bbs.wacai.com/home.php\\?mod=space&uid=[0-9]{1,}&do=profile&from=space
+http://bbs.wacai.com/home.php\\?mod=space&uid=[0-9]{1,}&do=album&view=me&from=space
+http://bbs.wacai.com/forum-[0-9]{1,}-[0-1]{1,}.html
+http://bbs.wacai.com/space-uid-[0-9]{1,}.html

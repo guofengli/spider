@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS}[%-5p][%l] - %m%n" />
+		</layout>
+	</appender>
+	<appender name="myFile" class="org.apache.log4j.RollingFileAppender">          
+        <param name="File" value="c:/log/spider/search/log.log" /><!-- 设置日志输出文件名 -->       
+        <!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->       
+        <param name="Append" value="false" />       
+        <param name="MaxBackupIndex" value="20" />   
+        <param name="MaxFileSize" value="10Mb" />
+        <layout class="org.apache.log4j.PatternLayout">       
+            <param name="ConversionPattern" value="%n%-d{yyyy-MM-dd HH:mm:ss}%n[%p]-[Thread: %t]-[%C.%M()]: %m%n" />       
+        </layout>       
+    </appender>  
+	<logger name="org.springframework" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>
+	<root>
+		<level value="info" />
+		<appender-ref ref="console" />
+		<appender-ref ref="myFile"/>
+	</root>
+</log4j:configuration>
