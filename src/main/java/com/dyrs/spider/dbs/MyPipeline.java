@@ -70,7 +70,7 @@ public class MyPipeline implements SpiderURLDB, SpiderPageDB, SpiderDefeatURLDB 
 			if (url != null) {
 				SpiderURLUser user = SpiderURLUser.me.findById(url);
 				if (user != null) {
-					new SpiderURLUser().setAttrs(map).update();
+//					new SpiderURLUser().setAttrs(map).update();
 					logger.info(url + "----------->update success");
 				} else {
 					new SpiderURLUser().setAttrs(map).save();
@@ -142,7 +142,21 @@ public class MyPipeline implements SpiderURLDB, SpiderPageDB, SpiderDefeatURLDB 
 				logger.info(map.get("url") + "----------入库完成---------");
 			}
 		}
-		return false;
+		return result;
+	}
+
+	public boolean updateSpiderPageDB(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		Object url_md5 = map.get("url_md5");
+		boolean result = false;
+		if (url_md5 != null) {
+			SpiderURLUser user = SpiderURLUser.me.findById(url_md5);
+			if (user != null) {
+				result = new SpiderURLUser().setAttrs(map).update();
+				logger.info(map.get("url") + "----------队列状态已经更新已经存在-------------");
+			}
+		}
+		return result;
 	}
 
 }
