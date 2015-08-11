@@ -153,7 +153,7 @@ public class MyPipeline implements SpiderURLDB, SpiderPageDB, SpiderDefeatURLDB 
 			SpiderURLUser user = SpiderURLUser.me.findById(url_md5);
 			if (user != null) {
 				result = new SpiderURLUser().setAttrs(map).update();
-				logger.info(map.get("url") + "----------队列状态已经更新已经存在-------------");
+				logger.info(map.get("url_md5") + "----------队列状态已经更新-------------");
 			}
 		}
 		return result;
